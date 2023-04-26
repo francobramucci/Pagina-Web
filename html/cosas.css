@@ -1,0 +1,59 @@
+.background{
+    background-color: rgb(25, 87, 90);
+}
+
+.encabezado{
+    font-family: monospace;
+    -webkit-text-stroke: 0.5px rgb(255, 255, 255); 
+    margin: -9px;
+    margin-bottom: auto;
+    padding: 10px;
+    text-align: center;
+    background-color: black;
+    color:aquamarine;
+}
+
+.logopoli{
+    position: relative;
+    top: -54px; 
+    left: 1775px;
+    width: 47px;
+    height: 47px
+}
+
+.logopoli:hover{
+    -webkit-animation: tiembla 0.1s infinite;
+  }
+  @-webkit-keyframes tiembla{
+    0%  { -webkit-transform:rotateZ(-1deg); }
+    50% { -webkit-transform:rotateZ( 0deg) scale(.9); }
+    100%{ -webkit-transform:rotateZ( 1deg); }
+}
+
+.tabla{
+    font-family: monospace;
+    margin: auto;
+    text-align: left;
+    border: 4px double aqua;
+    border-collapse: collapse;
+}
+
+.tabla th{
+    font-family: monospace;
+    color: rgb(255, 172, 142);
+    border-bottom: 3px double aqua;
+    font-size: 30px; /*1em = 16px*/
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.tabla td {
+    font-family: monospace;
+	padding: 10px;
+    border-bottom: 2px solid aqua;    
+	text-align: left;
+	font-size: 2em;
+}
+
+
