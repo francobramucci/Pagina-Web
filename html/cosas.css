@@ -15,14 +15,14 @@
 
 .logopoli{
     position: relative;
-    top: -54px; 
-    left: 1775px;
+    top: -48px; 
+    left: 1295px;
     width: 47px;
     height: 47px
 }
 
 .logopoli:hover{
-    -webkit-animation: tiembla 0.1s infinite;
+    -webkit-animation: tiembla 0.85s infinite;
   }
   @-webkit-keyframes tiembla{
     0%  { -webkit-transform:rotateZ(-1deg); }
@@ -44,16 +44,18 @@
     border-bottom: 3px double aqua;
     font-size: 30px; /*1em = 16px*/
     padding: 20px;
-    padding-left: 50px;
+    padding-left: 70px;
     padding-right: 50px;
+    text-align: center;    
 }
 
 .tabla td {
     font-family: monospace;
 	padding: 10px;
     border-bottom: 2px solid aqua;    
-	text-align: left;
+	text-align: center;
 	font-size: 2em;
 }
+
 
 
