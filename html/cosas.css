@@ -64,5 +64,11 @@
 	font-size: 2em;
 }
 
+.imagen{
+    width: 150px;
+    height: 150px;
+}
+
+.imagen:hover {filter: grayscale(80%);}
 
 
