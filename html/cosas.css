@@ -2,23 +2,26 @@
     background-color: rgb(25, 87, 90);
 }
 
-.encabezado{
+.titulo{
     font-family: monospace;
     -webkit-text-stroke: 0.5px rgb(255, 255, 255); 
+    text-align: center;
+    color:aquamarine;
+}
+.encabezado{
     margin: -9px;
     margin-bottom: auto;
     padding: 10px;
-    text-align: center;
     background-color: black;
-    color:aquamarine;
 }
 
 .logopoli{
     padding: 8px 16px;
-    float: right!important;
+    position: absolute;
+    top: 0;
+    right: 0;
     border:none;
     display:block;
-    outline:0;
     width: 47px;
     height: 47px
 }
@@ -36,6 +39,7 @@
 .tabla{
     font-family: monospace;
     margin: auto;
+    margin-top: 20px;
     text-align: left;
     border: 4px double aqua;
     border-collapse: collapse;
