@@ -1,4 +1,5 @@
 .background{
+    background-image: linear-gradient(rgb(25, 87, 90), rgb(25, 90, 87), rgb(157, 172, 167));
     background-color: rgb(25, 87, 90);
 }
 
@@ -22,8 +23,8 @@
     right: 0;
     border:none;
     display:block;
-    width: 47px;
-    height: 47px
+    width: 60px;
+    height: 60px
 }
 
 
@@ -37,6 +38,7 @@
 }
 
 .tabla{
+    background-color: rgb(25, 87, 90);
     font-family: monospace;
     margin: auto;
     margin-top: 30px;
@@ -56,7 +58,7 @@
 }
 
 .tabla td {
-    font-family: Calibri;
+    font-family: monospace;
 	padding: 5px;
     border-bottom: 1px solid aqua;
     border-left: 1px solid aqua;
