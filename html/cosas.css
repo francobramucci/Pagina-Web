@@ -45,7 +45,8 @@
     margin-top: 20px;
     text-align: center;
     border: 3px double aqua;
-    border-collapse: collapse;
+    /*border-collapse: collapse;*/
+    border-radius: 2em;
 }
 
 .tabla th{
@@ -55,7 +56,7 @@
     font-size: 30px; /*1em = 16px*/
     padding: 20px;
     padding-left: 25px;
-    text-align: center; 
+    text-align: center;
 }
 
 .tabla td {
@@ -65,6 +66,7 @@
     border-left: 1px solid aqua;
 	text-align: center;
 	font-size: 1.6em;
+    border-radius: 1em;
 }
 
 .imagen{
@@ -72,4 +74,7 @@
     height: 90px;
 }
 
-.imagen:hover {filter: grayscale(80%);}
+.imagen:hover {
+    filter: grayscale(80%);
+    transition:all .5s ease-in-out;
+}
