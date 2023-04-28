@@ -24,49 +24,57 @@
     right: 8px;
     border:none;
     display:block;
-    width: 47px;
-    height: 47px;
+    width: 52px;
+    height: 50px;
 }
 
 
 .logopoli:hover{
-    -webkit-animation: tiembla 0.85s infinite;
+    -webkit-animation: tiembla 1s infinite;
   }
   @-webkit-keyframes tiembla{
-    0%  { -webkit-transform:rotateZ(-1deg); }
+    0%  { -webkit-transform:rotateZ(-2deg); }
     50% { -webkit-transform:rotateZ( 0deg) scale(.9); }
-    100%{ -webkit-transform:rotateZ( 1deg); }
+    70% { -webkit-transform:rotateZ( 1deg); }
+    100%{ -webkit-transform:rotateZ( 2deg); }
 }
 
 .tabla{
     background-color: rgb(25, 90, 87);
-    font-family: monospace;
+    font-family: sans-serif;
+    table-layout: fixed;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 25px;
     text-align: center;
-    border: 3px double aqua;
-    /*border-collapse: collapse;*/
-    border-radius: 2em;
+    border: solid 4px aqua;
+    border-collapse: collapse;
+}
+
+thead {
+    background: rgb(157, 172, 167, 0.4);
 }
 
 .tabla th{
-    font-family: monospace;
+    font-family: sans-serif;
     color: rgb(255, 172, 142);
     border-bottom: 1px double aqua;
     font-size: 30px; /*1em = 16px*/
-    padding: 20px;
+    font-weight: 700;
+    border-bottom: 2px solid aqua;
+    padding: 20px 30px;
     padding-left: 25px;
     text-align: center;
+    border-collapse: collapse;
 }
 
 .tabla td {
     font-family: monospace;
 	padding: 5px;
-    border-bottom: 1px solid aqua;
+    border-bottom: 2px solid aqua;
     border-left: 1px solid aqua;
 	text-align: center;
 	font-size: 1.6em;
-    border-radius: 1em;
+    border-collapse: collapse;
 }
 
 .imagen{
@@ -76,5 +84,5 @@
 
 .imagen:hover {
     filter: grayscale(80%);
-    transition:all .5s ease-in-out;
+    transition:all .4s ease-in-out;
 }
