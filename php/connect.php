@@ -13,7 +13,7 @@ if($mysqli->connect_error) {
     die('Error de Conexion (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
 }
 else{
-    echo "Conexion exitosa a la base de datos\n";
+    //echo "Conexion exitosa a la base de datos\n";
 }
 
 
