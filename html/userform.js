@@ -1,4 +1,4 @@
-$(document).ready(function () { //Esto significa que se empezará a ejeutar una vez cargada la página
+$(document).ready(function () { //Esto significa que se empezará a ejeutar una vez cargada la pagina
 
     //let edit = false;
     fetchTasks();
@@ -12,29 +12,22 @@ $(document).ready(function () { //Esto significa que se empezará a ejeutar una 
                 let users = JSON.parse(response);
                 let tabla = '';
                 users.forEach(user=>{
-                    template += `
-                    <tr userId="${user.id}">
+                    tabla += `
+                    <tr>
                         <td>${user.id}</td>
                         <td>${user.nombre}</td>
                         <td>${user.apellido}</td>
                         <td>${user.dni}</td>
                         <td>${user.email}</td>
                     </tr>`;
+                    console.log(tabla);
                 })
             
-                $('#all-users').html(template);
+                $('#all-users').html(tabla);
             },
             error: function(jqXHR, exception){
                 console.log(jqXHR);
             }
         })
     }
-
-
-
-
-
-
-
-
 });
