@@ -46,8 +46,29 @@
                     <td><img class = "imagen"  src="assets/aerocorgi.png"></td>
                 </tr>
             </tbody>
+        </table>
 
+        <br>
+        <form id="user-form"">
+            <input type="hidden" id="userId">
+            <input type="text" id="userName" placeholder="Nombre Completo">
+            <input type="text" id="userLastname" placeholder="Apellido">
+            <input type="number" id="dni" placeholder="DNI">
+            <input type="email" id="userEmail" placeholder="E-mail">
+            <button type="submit">Guardar datos</button> 
+        </form>
 
+        <table class="tabla">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Nombre</td>
+                    <td>Apellido</td>
+                    <td>DNI</td>                        
+                    <td>E-mail</td>
+                </tr>
+            </thead>
+            <tbody id = "all-users"></tbody>
         </table>
     </body>
 </html>
