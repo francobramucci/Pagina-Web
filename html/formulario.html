@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" type = "text/css" href = "estilos.css">
+    <title>Formulario</title>
+</head>
+<body>
+    <header> 
+        <div class="guia">
+            <a href="formulario.html">formulario</a>
+            <a href="index.html">integrantes</a>
+        </div>
+        <h1 class = "titulo">Formulario</h1>
+        <a href = "http://www.ips.edu.ar" target=”_blank”><img src = "assets/polinegativo.jpg" alt = "Politécnico" class="logopoli"></a>
+    </header>
+
+    <br>
+        <form id="user-form"">
+            <input type="hidden" id="userId">
+            <input type="text" id="userName" placeholder="Nombre Completo">
+            <input type="text" id="userLastname" placeholder="Apellido">
+            <input type="number" id="dni" placeholder="DNI">
+            <input type="email" id="userEmail" placeholder="E-mail">
+            <button type="submit">Guardar datos</button> 
+        </form>
+
+        <table class="tabla">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Nombre</td>
+                    <td>Apellido</td>
+                    <td>DNI</td>                        
+                    <td>E-mail</td>
+                </tr>
+            </thead>
+            <tbody id="all-users"></tbody>
+        </table>
+</body>
+</html>

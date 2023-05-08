@@ -1,7 +1,9 @@
-.background{
+body{
     background-image: linear-gradient(rgb(25, 87, 90), rgb(25, 90, 87), rgb(157, 172, 167));
     background-color: rgb(157, 172, 167);
-    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .titulo{
@@ -9,12 +11,22 @@
     -webkit-text-stroke: 0.5px rgb(255, 255, 255); 
     text-align: center;
     color:aquamarine;
+    margin-right: 24vh;
 }
-.encabezado{
+header{
     margin: -9px;
     margin-bottom: auto;
     padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: black;
+}
+.guia {
+    display: flex;
+    gap: 2vh;
+    text-align: center;
+    align-content: center;
 }
 
 .logopoli{
