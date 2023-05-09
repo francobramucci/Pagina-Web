@@ -1,6 +1,6 @@
 $(document).ready(function () { //Esto significa que se empezará a ejeutar una vez cargada la pagina
 
-    //let edit = false;
+    let edit = false;
     fetchTasks();
 
 
@@ -30,4 +30,38 @@ $(document).ready(function () { //Esto significa que se empezará a ejeutar una 
             }
         })
     }
+
+    $('#user-form').submit(function(e){
+        e.preventDefault();
+
+        let postData = {
+            id: $('#userId').val(),
+            nombre: $('#userName').val(),
+            apellido: $('#userLastname').val(),
+            dni: $('#dni').val(),
+            email: $('#userEmail').val()
+        };
+
+        //let url = edit === false ? 'addUser.php' : 'updateUser.php';
+
+        $.ajax({
+            url: 'addUser.php',
+            type: 'POST',
+            data: postData,
+            success: function(response){
+                edit = false;
+                fetchTasks();
+                //Al agregar un usuario y tocar el boton de "Guardar Datos"
+                //reseteo el formulario.
+                $('#user-form').trigger('reset');
+            },
+            error: function(jqXHR, exception){
+                console.log(jqXHR);
+            }
+        });
+    });
+
+
+
+
 });

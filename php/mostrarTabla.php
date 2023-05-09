@@ -18,5 +18,4 @@
 
     $jsonstring = json_encode($json);
     echo $jsonstring;
-
 ?>
