@@ -22,11 +22,20 @@ header{
     align-items: center;
     background-color: black;
 }
+header h1 {
+    padding-right: 8vh;
+}
+
 .guia {
     display: flex;
+    padding-left: 10px;
     gap: 2vh;
     text-align: center;
     align-content: center;
+}
+.guia a {
+    font-family: Arial;
+    text-decoration: none;
 }
 
 .logopoli{
@@ -43,8 +52,8 @@ header{
 
 .logopoli:hover{
     -webkit-animation: tiembla 1s infinite;
-  }
-  @-webkit-keyframes tiembla{
+}
+@-webkit-keyframes tiembla{
     0%  { -webkit-transform:rotateZ(-2deg); }
     50% { -webkit-transform:rotateZ( 0deg) scale(.9); }
     70% { -webkit-transform:rotateZ( 1deg); }
@@ -97,4 +106,42 @@ thead {
 .imagen:hover {
     filter: grayscale(80%);
     transition:all .4s ease-in-out;
+}
+
+.contenido {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.user-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-form button {
+    padding: 20px 44px;
+    border: 2px solid white;
+    border-radius: 30px;
+    font-size: 17px;
+}
+.user-form button:hover {
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0);
+}
+
+.user-form div {
+    padding: 10vh;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+.user-form input {
+    width: 53vh;
+    padding: 10px;
+    padding-left: 30px;
+    border: 2px solid white;
+    border-radius: 15px;
+    outline: none;
 }
