@@ -1,10 +1,10 @@
-$(document).ready(function () { //Esto significa que se empezará a ejeutar una vez cargada la pagina
+$(document).ready(function () { //Esto significa que se empezará a ejecutar una vez cargada la pagina
 
     let edit = false;
-    fetchTasks();
+    fetchUsers();
 
 
-    function fetchTasks(){
+    function fetchUsers(){
         $.ajax({
             url: 'mostrarTabla.php',
             type: 'GET',
@@ -19,8 +19,9 @@ $(document).ready(function () { //Esto significa que se empezará a ejeutar una 
                         <td>${user.apellido}</td>
                         <td>${user.dni}</td>
                         <td>${user.email}</td>
+                        <td><button class="edit-row" userId="${user.id}">Editar</button></td>
                     </tr>`;
-                    console.log(tabla);
+                    //console.log(tabla);
                 })
             
                 $('#all-users').html(tabla);
@@ -42,18 +43,41 @@ $(document).ready(function () { //Esto significa que se empezará a ejeutar una 
             email: $('#userEmail').val()
         };
 
-        //let url = edit === false ? 'addUser.php' : 'updateUser.php';
+        let url = edit === false ? 'addUser.php' : 'updateUser.php';
 
         $.ajax({
-            url: 'addUser.php',
+            url: url,
             type: 'POST',
             data: postData,
             success: function(response){
                 edit = false;
-                fetchTasks();
+                fetchUsers();
                 //Al agregar un usuario y tocar el boton de "Guardar Datos"
                 //reseteo el formulario.
                 $('#user-form').trigger('reset');
+            },
+            error: function(jqXHR, exception){
+                console.log(jqXHR);
+            }
+        });
+    });
+
+    $(document).on('click', '.edit-row', function() {
+        let id = $(this).attr('userId');
+        
+        $.ajax({
+            url: 'dataUser.php',
+            type: 'POST',
+            data: {id: id},
+            success: function(response){
+                let user = JSON.parse(response);
+                console.log(user[0].nombre);
+                $('#userId').val(user[0].id);
+                $('#userName').val(user[0].nombre);
+                $('#userLastname').val(user[0].apellido);
+                $('#dni').val(user[0].dni);
+                $('#userEmail').val(user[0].email);
+                edit = true;  
             },
             error: function(jqXHR, exception){
                 console.log(jqXHR);
