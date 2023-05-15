@@ -98,6 +98,13 @@ thead {
     border-collapse: collapse;
 }
 
+.edit-row {
+    padding: 7px 15px;
+    border: 2px solid white;
+    border-radius: 14px;
+    font-size: 19px;
+}
+
 .imagen{
     width: 97px;
     height: 90px;
@@ -132,13 +139,13 @@ thead {
 }
 
 .user-form div {
-    padding: 10vh;
+    padding: 6vh;
     display: flex;
     flex-direction: column;
     gap: 35px;
 }
 .user-form input {
-    width: 53vh;
+    width: 27vh;
     padding: 10px;
     padding-left: 30px;
     border: 2px solid white;
