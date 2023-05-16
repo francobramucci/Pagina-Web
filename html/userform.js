@@ -41,17 +41,12 @@ $(document).ready(function () { //Esto significa que se empezará a ejecutar una
                 users.forEach(user=>{
                     tabla += `
                     <tr>
-                        <td>${user.id}</td>
                         <td>${user.nombre}</td>
                         <td>${user.apellido}</td>
                         <td>${user.dni}</td>
                         <td>${user.email}</td>
-                        <td><button class="edit-row" userId="${user.id}">Editar</button></td>
-<<<<<<< HEAD
+                        <td><button class="edit-row" userId="${user.id}">Editar</button>
                         <button class="delete-row" userId="${user.id}">Borrar</button></td>
-                 
-=======
->>>>>>> 741ac2f (search user boceto)
                     </tr>`;
                     //console.log(tabla);
                 })
@@ -121,12 +116,12 @@ $(document).ready(function () { //Esto significa que se empezará a ejecutar una
         let id = $(this).attr('userId');
         
         $.ajax({
-            url: 'dataUser.php',
+            url: 'eraseUser.php',
             type: 'POST',
             data: {id: id},
             success: function(response){
                 fetchUsers();
-                console.log(response)
+                console.log(response);
             },
             error: function(jqXHR, exception){
                 console.log(jqXHR);
