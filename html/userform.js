@@ -3,12 +3,7 @@ $(document).ready(function () { //Esto significa que se empezará a ejecutar una
     let edit = false;
     fetchUsers();
 
-    $('#search').keyup(function (e){
-        let search = $('#search').val();
-
-        if(search){
-            console.log("hl");
-
+/*
             $.ajax({
                 url: 'search-user.php',
                 type: 'POST',
@@ -32,9 +27,10 @@ $(document).ready(function () { //Esto significa que se empezará a ejecutar una
         }
 
 
-
-
     });
+
+*/
+
     function fetchUsers(){
         $.ajax({
             url: 'mostrarTabla.php',
@@ -51,8 +47,11 @@ $(document).ready(function () { //Esto significa que se empezará a ejecutar una
                         <td>${user.dni}</td>
                         <td>${user.email}</td>
                         <td><button class="edit-row" userId="${user.id}">Editar</button></td>
+<<<<<<< HEAD
                         <button class="delete-row" userId="${user.id}">Borrar</button></td>
                  
+=======
+>>>>>>> 741ac2f (search user boceto)
                     </tr>`;
                     //console.log(tabla);
                 })
