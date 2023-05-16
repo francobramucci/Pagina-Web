@@ -3,7 +3,38 @@ $(document).ready(function () { //Esto significa que se empezará a ejecutar una
     let edit = false;
     fetchUsers();
 
+    $('#search').keyup(function (e){
+        let search = $('#search').val();
 
+        if(search){
+            console.log("hl");
+
+            $.ajax({
+                url: 'search-user.php',
+                type: 'POST',
+                data: {search: search},
+                success: function(response){
+                    let users = JSON.parse(response);
+                    
+                    let template = '';
+
+                    users.forEach(user=>{
+                        template += `<li>${user.nombre}</li>`;
+                    });
+
+                    $('')
+                }
+
+
+
+
+            });
+        }
+
+
+
+
+    });
     function fetchUsers(){
         $.ajax({
             url: 'mostrarTabla.php',
