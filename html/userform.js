@@ -19,7 +19,7 @@ $(document).ready(function () { //Esto significa que se empezará a ejecutar una
                         <td>${user.apellido}</td>
                         <td>${user.dni}</td>
                         <td>${user.email}</td>
-                        <td><button class="edit-row" userId="${user.id}">Editar</button></td>
+                        <td><button class="edit-row" userId="${user.id}">Editar</button><button class="erase-row" userId="${user.id}">Borrar</button></td>
                     </tr>`;
                     //console.log(tabla);
                 })
@@ -85,7 +85,22 @@ $(document).ready(function () { //Esto significa que se empezará a ejecutar una
         });
     });
 
-
+    $(document).on('click', '.erase-row', function() {
+        let id = $(this).attr('userId');
+        
+        $.ajax({
+            url: 'dataUser.php',
+            type: 'POST',
+            data: {id: id},
+            success: function(response){
+                fetchUsers();
+                console.log(response)
+            },
+            error: function(jqXHR, exception){
+                console.log(jqXHR);
+            }
+        });
+    });
 
 
 });
