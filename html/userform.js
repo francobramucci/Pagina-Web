@@ -19,7 +19,9 @@ $(document).ready(function () { //Esto significa que se empezará a ejecutar una
                         <td>${user.apellido}</td>
                         <td>${user.dni}</td>
                         <td>${user.email}</td>
-                        <td><button class="edit-row" userId="${user.id}">Editar</button><button class="delete-row" userId="${user.id}">Borrar</button></td>
+                        <td><button class="edit-row" userId="${user.id}">Editar</button></td>
+                        <button class="delete-row" userId="${user.id}">Borrar</button></td>
+                 
                     </tr>`;
                     //console.log(tabla);
                 })

@@ -63,9 +63,9 @@ header h1 {
 .tabla{
     background-color: rgb(25, 90, 87);
     font-family: sans-serif;
-    table-layout: fixed;
+    width: 160vh;
     margin: auto;
-    margin-top: 25px;
+    margin-top: 5.5vh;
     text-align: center;
     border: solid 4px aqua;
     border-collapse: collapse;
@@ -98,8 +98,16 @@ thead {
     border-collapse: collapse;
 }
 
+.delete-row{
+    margin-left: 2vh;
+    padding: 1.3vh 1.5vh;
+    border: 2px solid white;
+    border-radius: 14px;
+    font-size: 19px;
+}
+
 .edit-row {
-    padding: 7px 15px;
+    padding: 1.3vh 1.5vh;
     border: 2px solid white;
     border-radius: 14px;
     font-size: 19px;
