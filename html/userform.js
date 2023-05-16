@@ -19,7 +19,7 @@ $(document).ready(function () { //Esto significa que se empezará a ejecutar una
                         <td>${user.apellido}</td>
                         <td>${user.dni}</td>
                         <td>${user.email}</td>
-                        <td><button class="edit-row" userId="${user.id}">Editar</button></td>
+                        <td><button class="edit-row" userId="${user.id}">Editar</button><button class="edit-delete" userId="${user.id}">Eliminar</button></td>
                     </tr>`;
                     //console.log(tabla);
                 })
