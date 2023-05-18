@@ -3,9 +3,13 @@ $(document).ready(function () { //Esto significa que se empezará a ejecutar una
     let edit = false;
     fetchUsers();
 
-/*
+    $('#search').keyup(function (e){
+        
+        let search = $('#search').val();
+
+        if(search){
             $.ajax({
-                url: 'search-user.php',
+                url: 'searchUser.php',
                 type: 'POST',
                 data: {search: search},
                 success: function(response){
@@ -17,19 +21,18 @@ $(document).ready(function () { //Esto significa que se empezará a ejecutar una
                         template += `<li>${user.nombre}</li>`;
                     });
 
-                    $('')
-                }
-
-
-
+                    $('#user-result').html(template);
+                },
+                error: function (jqXHR, exception) {
+                    console.log(jqXHR);
+                } 
 
             });
         }
-
-
+        else{
+            $('#task-result ul').html('');
+        }
     });
-
-*/
 
     function fetchUsers(){
         $.ajax({
