@@ -19,23 +19,32 @@
         <a href = "http://www.ips.edu.ar" target=”_blank”><img src = "assets/polinegativo.jpg" alt = "Politécnico" class="logopoli"></a>
     </header>
     
-    <!-- BUSCAR -->
-    <input id = "search" type="search" placeholder="Buscar tu nombre">
-    <div id="user-result" style = "width: 50%;"></div>
-    
     <!-- FORMULARIO -->
-    <div class="contenido">
-        <form class="user-form" id="user-form">
-            <div>
-                <input type="hidden" id="userId">
-                <input type="text" id="userName" placeholder="Nombre Completo">
-                <input type="text" id="userLastname" placeholder="Apellido">
-                <input type="number" id="dni" placeholder="DNI">
-                <input type="email" id="userEmail" placeholder="E-mail">
+    <form id="user-form">
+        <div>
+            <input type="hidden" id="userId">
+            <input type="text" id="userName" placeholder="Nombre Completo">
+            <input type="text" id="userLastname" placeholder="Apellido">
+            <input type="number" id="dni" placeholder="DNI">
+            <input type="email" id="userEmail" placeholder="E-mail">
+        </div>
+        <button type="submit">Guardar datos</button>
+    </form>
+    
+    <div class="todo">
+        <!-- BUSCAR -->
+        <div class="buscar">
+            <input id = "search" type="search" placeholder="Buscar tu nombre">
+            <div id="user-result" class="lista">
+                <li>hola</li>
+                <li>como</li>
+                <li>hola</li>
+                <li>como</li>
+                <li>hola</li>
+                <li>como</li>
             </div>
-            <button type="submit">Guardar datos</button>
-        </form>
-        
+        </div>
+    
         <!-- TABLA -->
         <table class="tabla">
             <thead>

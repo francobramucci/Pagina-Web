@@ -102,9 +102,11 @@ thead {
     width: 16vh;
     margin: 1vh;
     padding: 1.3vh 1.5vh;
-    border: 2px solid white;
+    border: 2px solid rgb(165, 30, 30);
     border-radius: 14px;
     font-size: 19px;
+    background-color: rgb(165, 30, 30);
+    color: white;
 }
 
 .edit-row {
@@ -126,39 +128,73 @@ thead {
     transition:all .4s ease-in-out;
 }
 
-.contenido {
+.todo {
     display: flex;
     flex-direction: row;
+}
+
+.contenido {
+    padding-left: 6vh;
+    display: flex;
+    flex-direction: column;
     justify-content: space-around;
 }
 
-.user-form {
+#user-form {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    padding-left: 20vh;
+    gap: 10px;
 }
 
-.user-form button {
+#user-form button {
     padding: 17px 34px;
     border: 2px solid white;
     border-radius: 30px;
     font-size: 17px;
 }
-.user-form button:hover {
+#user-form button:hover {
     background: rgba(255, 255, 255, 0.5);
     border: 2px solid rgba(255, 255, 255, 0);
 }
 
-.user-form div {
+#user-form div {
     padding: 6vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 35px;
 }
-.user-form input {
-    width: 27vh;
+#user-form input {
+    width: 140px;
     padding: 10px;
     padding-left: 30px;
+    border: 2px solid white;
+    border-radius: 15px;
+    outline: none;
+}
+
+.buscar {
+    display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+    padding-top: 70px;
+}
+
+#user-result {
+    padding: 13px;
+    display: flex;
+    flex-direction: column; 
+    gap: 4px;
+    font-family: sans-serif;
+}
+
+#search {
+    height: 35px;
+    width: 220px;
+    padding: 10px;
+    padding-left: 25px;
     border: 2px solid white;
     border-radius: 15px;
     outline: none;
