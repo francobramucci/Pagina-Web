@@ -118,6 +118,14 @@ thead {
     font-size: 19px;
 }
 
+.delete-row:hover {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.edit-row:hover {
+    border: 2px solid rgba(0, 0, 0, 0.6);
+}
+
 .imagen{
     width: 97px;
     height: 90px;
@@ -155,8 +163,7 @@ thead {
     font-size: 17px;
 }
 #user-form button:hover {
-    background: rgba(255, 255, 255, 0.5);
-    border: 2px solid rgba(255, 255, 255, 0);
+    border: 2px solid rgba(0, 0, 0, 0.6);
 }
 
 #user-form div {
