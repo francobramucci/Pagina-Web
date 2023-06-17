@@ -9,7 +9,7 @@ $(document).ready(function () { //Esto significa que se empezará a ejecutar una
 
         if(search){
             $.ajax({
-                url: 'searchUser.php',
+                url: '../php/searchUser.php',
                 type: 'POST',
                 data: {search: search},
                 success: function(response){
@@ -36,7 +36,7 @@ $(document).ready(function () { //Esto significa que se empezará a ejecutar una
 
     function fetchUsers(){
         $.ajax({
-            url: 'mostrarTabla.php',
+            url: '../php/mostrarTabla.php',
             type: 'GET',
             success: function(response){
                 let users = JSON.parse(response);
@@ -73,7 +73,7 @@ $(document).ready(function () { //Esto significa que se empezará a ejecutar una
             email: $('#userEmail').val()
         };
 
-        let url = edit === false ? 'addUser.php' : 'updateUser.php';
+        let url = edit === false ? '../php/addUser.php' : '../php/updateUser.php';
 
         $.ajax({
             url: url,
@@ -96,7 +96,7 @@ $(document).ready(function () { //Esto significa que se empezará a ejecutar una
         let id = $(this).attr('userId');
         
         $.ajax({
-            url: 'dataUser.php',
+            url: '../php/dataUser.php',
             type: 'POST',
             data: {id: id},
             success: function(response){
@@ -119,7 +119,7 @@ $(document).ready(function () { //Esto significa que se empezará a ejecutar una
         let id = $(this).attr('userId');
         
         $.ajax({
-            url: 'eraseUser.php',
+            url: '../php/eraseUser.php',
             type: 'POST',
             data: {id: id},
             success: function(response){
