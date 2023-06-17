@@ -1,19 +1,19 @@
-body{
+body {
     background-image: linear-gradient(rgb(25, 87, 90), rgb(25, 90, 87), rgb(157, 172, 167));
     background-color: rgb(157, 172, 167);
     background-size: cover;
     min-height: 100vh;
-    overflow-x: hidden;
 }
 
-.titulo{
+.titulo {
     font-family: monospace;
-    -webkit-text-stroke: 0.5px rgb(255, 255, 255); 
+    -webkit-text-stroke: 0.5px rgb(255, 255, 255);
     text-align: center;
-    color:aquamarine;
+    color: aquamarine;
     margin-right: 24vh;
 }
-header{
+
+header {
     margin: -9px;
     margin-bottom: auto;
     padding: 10px;
@@ -22,6 +22,7 @@ header{
     align-items: center;
     background-color: black;
 }
+
 header h1 {
     padding-right: 8vh;
 }
@@ -33,75 +34,101 @@ header h1 {
     text-align: center;
     align-content: center;
 }
+
 .guia a {
     font-family: Arial;
     text-decoration: none;
 }
 
-.logopoli{
+.logopoli {
     padding: 8px 16px;
     position: absolute;
     top: 8px;
     right: 8px;
-    border:none;
-    display:block;
+    border: none;
+    display: block;
     width: 52px;
     height: 50px;
 }
 
-
-.logopoli:hover{
+.logopoli:hover {
     -webkit-animation: tiembla 1s infinite;
 }
-@-webkit-keyframes tiembla{
-    0%  { -webkit-transform:rotateZ(-2deg); }
-    50% { -webkit-transform:rotateZ( 0deg) scale(.9); }
-    70% { -webkit-transform:rotateZ( 1deg); }
-    100%{ -webkit-transform:rotateZ( 2deg); }
+
+@-webkit-keyframes tiembla {
+    0% {
+        -webkit-transform: rotateZ(-2deg);
+    }
+    50% {
+        -webkit-transform: rotateZ(0deg) scale(.9);
+    }
+    70% {
+        -webkit-transform: rotateZ(1deg);
+    }
+    100% {
+        -webkit-transform: rotateZ(2deg);
+    }
 }
 
-.tabla{
+.tabla-container {
+    width: 500vh;
+    margin: auto;
+    margin-top: 5vh;
+    max-height: 50vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position:relative;
+}
+
+.tabla {
     background-color: rgb(25, 90, 87);
     font-family: sans-serif;
-    width: 160vh;
-    margin: auto;
-    margin-top: 5.5vh;
+    width: fit-content;
     text-align: center;
     border: solid 4px aqua;
     border-collapse: collapse;
 }
 
-thead {
-    background: rgb(157, 172, 167, 0.4);
-}
-
-.tabla th{
+.tabla th {
+    position: sticky;
+    top: 0;
+    background: rgb(25, 90, 87);
     font-family: sans-serif;
-    color: rgb(255, 172, 142);
-    border-bottom: 1px double aqua;
-    font-size: 30px; /*1em = 16px*/
+    color: rgba(255, 172, 142, 0.8);
+    font-size: 30px;
     font-weight: 700;
     border-bottom: 2px solid aqua;
     padding: 20px 30px;
     padding-left: 25px;
     text-align: center;
     border-collapse: collapse;
+    white-space: nowrap; /* Evita el desbordamiento del contenido */    
+  }
+
+.tabla th:nth-child(4),
+.tabla td:nth-child(4) {
+    width: 500px; /* Ancho de la segunda columna */
 }
 
 .tabla td {
     font-family: monospace;
-	padding: 5px;
+    padding: 2px;
     border-bottom: 2px solid aqua;
     border-left: 1px solid aqua;
-	text-align: center;
-	font-size: 1.6em;
+    text-align: center;
+    font-size: 25px;
     border-collapse: collapse;
+    /*width: 20%;*/
+    max-width: 250px; /* Establece el ancho máximo deseado para las celdas */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.delete-row{
-    width: 16vh;
-    margin: 1vh;
-    padding: 1.3vh 1.5vh;
+.delete-row {
+    width: 7vh;
+    margin-bottom: 1vh;
+    padding: 1.2vh 0.8vh;
     border: 2px solid rgb(165, 30, 30);
     border-radius: 14px;
     font-size: 19px;
@@ -110,9 +137,9 @@ thead {
 }
 
 .edit-row {
-    width: 16vh;
+    width: 7vh;
     margin-top: 1vh;
-    padding: 1.3vh 1.5vh;
+    padding: 1.2vh 0.8vh;
     border: 2px solid white;
     border-radius: 14px;
     font-size: 19px;
@@ -126,19 +153,20 @@ thead {
     border: 2px solid rgba(0, 0, 0, 0.6);
 }
 
-.imagen{
+.imagen {
     width: 97px;
     height: 90px;
 }
 
 .imagen:hover {
     filter: grayscale(80%);
-    transition:all .4s ease-in-out;
+    transition: all 0.4s ease-in-out;
 }
 
 .todo {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .contenido {
@@ -150,49 +178,53 @@ thead {
 
 #user-form {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding-left: 20vh;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 0vh;
     gap: 10px;
 }
 
 #user-form button {
-    padding: 17px 34px;
+    padding: 10px 10px;
     border: 2px solid white;
     border-radius: 30px;
     font-size: 17px;
 }
+
 #user-form button:hover {
     border: 2px solid rgba(0, 0, 0, 0.6);
 }
 
 #user-form div {
-    padding: 6vh;
+    margin-top: 5vh;
+    padding-right: 10vh;
+    padding-left: 2vh;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 35px;
+    flex-direction: column;
+    gap: 25px;
 }
+
 #user-form input {
-    width: 140px;
+    width: 200px;
     padding: 10px;
-    padding-left: 30px;
+    padding-left: 10px;
     border: 2px solid white;
     border-radius: 15px;
     outline: none;
 }
 
 .buscar {
+    margin-top: 5vh;
+    padding: 10px;
+    padding-top: 0vh;
     display: flex;
     flex-direction: column;
-    padding-left: 40px;
-    padding-top: 70px;
 }
 
 #user-result {
     padding: 13px;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     gap: 4px;
     font-family: sans-serif;
 }
