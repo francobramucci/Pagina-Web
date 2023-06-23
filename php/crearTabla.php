@@ -4,7 +4,7 @@
 
     $mysqli->query("CREATE TABLE usuarios (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        user TEXT NOT NULL,
+        user INT,
         nombre TEXT NOT NULL,
         apellido VARCHAR(80) NOT NULL,
         dni TEXT NOT NULL,
