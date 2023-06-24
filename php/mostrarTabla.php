@@ -12,7 +12,8 @@
             'nombre' => $row['nombre'],
             'apellido' => $row['apellido'],
             'dni' => $row['dni'],
-            'email' => $row['email']
+            'email' => $row['email'],
+            'user' -> $row['user']
         );
     }
 

@@ -2,8 +2,8 @@
 
     include 'connect.php';
 
-    $mysqli->query("CREATE TABLE usuarios (
-        id INT AUTO_INCREMENT PRIMARY KEY,
+    $mysqli->query("CREATE TABLE
+        usuarios (id INT AUTO_INCREMENT PRIMARY KEY,
         user INT,
         nombre TEXT NOT NULL,
         apellido VARCHAR(80) NOT NULL,
@@ -11,10 +11,8 @@
         email TEXT NOT NULL
     )")or die($mysqli->error);
 
-    $mysqli->close();
-
-    $users->query("CREATE TABLE accounts (
-        id INT AUTO_INCREMENT PRIMARY KEY,
+    $mysqli->query("CREATE TABLE
+        accounts (id INT AUTO_INCREMENT PRIMARY KEY,
         email TEXT NOT NULL,
         pass TEXT NOT NULL,
         sign_date TEXT NOT NULL,
@@ -23,8 +21,8 @@
         admins TINYINT,
         bloq TINYINT,
         bloq_text TEXT NOT NULL
-    )") or die($users->error);
+    )") or die($mysqli->error);
 
-    $users->close();
+    $mysqli->close();
 
 ?>

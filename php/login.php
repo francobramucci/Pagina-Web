@@ -15,14 +15,14 @@
 
     if (!empty($email) && !empty($password)) {
         $query = "SELECT id, cant_log, admins, bloq, bloq_text FROM accounts WHERE email = '$email'";
-        $results = $users->query($query);
+        $results = $mysqli->query($query);
 
         $new_log = $results['cant_log']+1;
         $query2 = "INSERT into accounts(last_log,cant_log) VALUES ('$date', '$new_log')";
-        $results2 = $users->query($query2);
+        $results2 = $mysqli->query($query2);
 
         if(!$results2){
-            die('Query Error' . $users->connect_error);
+            die('Query Error' . $mysqli->connect_error);
         }
 
         if (count($results) > 0 && password_verify($password, $results['pass'])) {
