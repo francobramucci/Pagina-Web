@@ -131,6 +131,4 @@ $(document).ready(function () { //Esto significa que se empezará a ejecutar una
             }
         });
     });
-
-
 });

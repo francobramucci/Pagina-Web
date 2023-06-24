@@ -10,6 +10,6 @@
         if(!$result){
             die('Query Error' . $mysqli->error);
         }
-        echo "Usuario eliminado pa";
+        //echo "Usuario eliminado pa";
     }
 ?>
