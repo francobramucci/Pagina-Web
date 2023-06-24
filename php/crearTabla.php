@@ -16,7 +16,13 @@
     $users->query("CREATE TABLE accounts (
         id INT AUTO_INCREMENT PRIMARY KEY,
         email TEXT NOT NULL,
-        pass TEXT NOT NULL
+        pass TEXT NOT NULL,
+        sign_date TEXT NOT NULL,
+        last_log TEXT NOT NULL,
+        cant_log INT,
+        admins TINYINT,
+        bloq TINYINT,
+        bloq_text TEXT NOT NULL
     )") or die($users->error);
 
     $users->close();

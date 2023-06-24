@@ -2,7 +2,7 @@
 
     include 'connect.php';
 
-    $result = $mysqli->query("SELECT * from usuarios");
+    $result = $mysqli->query("SELECT * from usuarios /*where user = '$_SESSION['user_id']'*/");
 
     $json = array();
 

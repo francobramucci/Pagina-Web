@@ -5,5 +5,5 @@
 
   session_destroy();
 
-  header('Location: /html/signup.html');
+  //header('Location: /html/signup.html');
 ?>
