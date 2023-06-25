@@ -14,7 +14,7 @@
     } else {
         //echo "Conexion exitosa a la base de datos\n";
     }
-/*
+
     if (!isset($_SESSION)) { //La sesión se mantiene iniciada en cada página (ya que connect.php está incluido en todas)
         session_start();
     }

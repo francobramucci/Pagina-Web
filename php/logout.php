@@ -5,5 +5,5 @@
 
   session_destroy();
 
-  //header('Location: /html/signup.html');
+  header('Location: http://200.3.127.46:8002/~uno/html/sign.php');
 ?>

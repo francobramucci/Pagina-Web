@@ -2,10 +2,6 @@
 
     include 'connect.php';
 
-    if (isset($_SESSION['user_id'])) {
-        header('Location: http://200.3.127.46:8002/~uno/html/formulario.html');
-    }
-
     $email = $_POST['email'];
     $password = $_POST['password'];
     $date = date("d-m-Y H:i:s");
@@ -38,7 +34,6 @@
                 $_SESSION['admins'] = $row['admins'];
                 $_SESSION['bloq'] = $row['bloq'];
                 $_SESSION['bloq_text'] = $row['bloq_text'];
-                header("Location: http://200.3.127.46:8002/~uno/html/formulario.html");
             }
         }
         $results->free();

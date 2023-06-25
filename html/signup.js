@@ -7,7 +7,7 @@ $(document).ready(function () {
             type: 'POST',
             data: {email: $('#signEmail').val(), password: $('#password').val()},
             success: function(response){
-                $('#signup').trigger('reset');
+                window.location.href = "http://200.3.127.46:8002/~uno/html/log.php";
             },
             error: function(jqXHR, exception){
                 console.log(jqXHR);
