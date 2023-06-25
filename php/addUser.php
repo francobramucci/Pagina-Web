@@ -14,7 +14,7 @@
         $email = $mysqli->real_escape_string($email);
 
         if(!empty($nombre) && !empty($apellido) && !empty($dni) && !empty($email)){
-            $query = "INSERT into usuarios(nombre,apellido,dni,email) VALUES('$nombre','$apellido','$dni','$email')";
+            $query = "INSERT into usuarios(nombre,apellido,dni,email,user) VALUES('$nombre','$apellido','$dni','$email','$_SESSION['user_id']')";
             $result = $mysqli->query($query);
 
             if(!$result){

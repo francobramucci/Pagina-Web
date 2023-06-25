@@ -6,7 +6,7 @@
     $password = $_POST['password'];
     $password_hash = password_hash($password, PASSWORD_BCRYPT);
     $date = date("d-m-Y H:i:s");
-
+    
     if(isset($email) && isset($password)){
         $email = $mysqli->real_escape_string($email);
         $password_hash = $mysqli->real_escape_string($password_hash);
