@@ -21,7 +21,7 @@
     if (!isset($_SESSION['tiempo'])) {
         $_SESSION['tiempo']=time();
     }
-    else if (time() - $_SESSION['tiempo'] > 120) {
+    else if (time() - $_SESSION['tiempo'] > 300) {
         session_destroy();
         header("Location: http://200.3.127.46:8002/~uno/html/login.html");
         die();  

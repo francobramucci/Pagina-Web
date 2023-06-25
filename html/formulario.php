@@ -8,7 +8,7 @@
     if (!isset($_SESSION['tiempo'])) {
         $_SESSION['tiempo']=time();
     }
-    else if (time() - $_SESSION['tiempo'] > 120) {
+    else if (time() - $_SESSION['tiempo'] > 300) {
         session_destroy();
         header("Location: http://200.3.127.46:8002/~uno/html/log.php");
         die();  
@@ -40,7 +40,7 @@
         <h1 class="titulo">Formulario</h1>
         <a href="http://www.ips.edu.ar" target="_blank"><img src="assets/polinegativo.jpg" alt="Politécnico" class="logopoli"></a>
     </header>
-
+    <?php if(!$_SESSION['bloq']): ?>
     <div class="todo">
         <!-- FORMULARIO -->
         <form id="user-form">
@@ -76,5 +76,10 @@
             <div id="user-result" class="lista"></div>
         </div>
     </div>
+    <?php else: ?>
+        <br> Has sido bloqueado        
+        <br> Motivo: <?= $_SESSION['bloq_text']; ?>
+        <br> Comunicate con un administrador para poder acceder
+    <?php endif; ?>
 </body>
 </html>
