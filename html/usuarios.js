@@ -17,10 +17,10 @@ $(document).ready(function () {
                         <td>${user.cant_log}</td>
                         <td>${user.bloq}</td>
                         <td>${user.bloq_text}</td>
-                        <td><button class="admin-row" userId="${user.id}">Admin</button></td>
+                        <td><button class="edit-row" userId="${user.id}">Admin</button></td>
                         <td>
                             <form class="bloquear-form">
-                                <button type="submit">Bloquear</button>
+                                <button class="delete-row" type="submit">Bloquear</button>
                                 <input type="hidden" class="userId" value="${user.id}">
                                 <input type="text" class="motivo" placeholder="Motivo">
                             </form>

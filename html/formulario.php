@@ -77,9 +77,13 @@
         </div>
     </div>
     <?php else: ?>
-        <br> Has sido bloqueado        
-        <br> Motivo: <?= $_SESSION['bloq_text']; ?>
-        <br> Comunicate con un administrador para poder acceder
+        <div class="login-page">
+            <div class="form">
+                <h1>Has sido bloqueado</h1>       
+                <h3>Motivo: <?= $_SESSION['bloq_text']; ?></h3>
+                <p>Comunicate con un administrador para poder acceder al sitio</p>
+            </div>
+        </div>
     <?php endif; ?>
 </body>
 </html>

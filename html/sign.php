@@ -18,26 +18,25 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="signup.js"></script>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel = "stylesheet" type = "text/css" href = "estilos.css">
     </head>
     <body>
-        <header> 
-            <div class="guia">
-                <a href="formulario.php">Formulario</a>
-                <a href="../index.html">Integrantes</a>
+        <div class="login-page">
+            <div class="form">
+                <form id="signup" class="login-form">
+                    <input type="email" id="signEmail" placeholder="Email">
+                    <input type="password" id="password" placeholder="Password">
+                    <button>Registrarse</button>
+                    <p class="message">Ya tiene una cuenta? <a href="log.php">Inicie sesion</a></p>
+                </form>
             </div>
-        </header>
-        <form id="signup">
-            <input type="email" id="signEmail" placeholder="E-mail">
-            <input type="password" id="password" placeholder="Password">
-            <button type="submit">Registrarse</button>
-        </form>
-        <a href="log.php">Ya tiene una cuenta? Inicie sesion</a>
+        </div>
     </body>
 </html>
