@@ -197,7 +197,7 @@ a.button:active {
 .tabla {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 1100px;
+    width: 1150px;
     background-color: white;
     margin: auto;
     margin-top: 1.5vh;
@@ -205,8 +205,7 @@ a.button:active {
     box-shadow: 0 6px 7px 3px rgba(0, 0, 0, 0.24);
 }
 
-.tabla td,
-th {
+.tabla td, th {
     border: 0px solid #ddd;
     padding: 8px;
     text-align: center;
@@ -265,8 +264,14 @@ th {
 
 .todo {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    margin: -1.3%;
+    gap: -8px;
+}
+
+.todo-tabla {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .contenido {
@@ -296,9 +301,8 @@ th {
 }
 
 #user-form div {
-    margin-top: 5vh;
-    padding-right: 10vh;
-    padding-left: 2vh;
+    margin-top: 19vh;
+    padding-left: -7vh;
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -315,6 +319,7 @@ th {
 
 .buscar {
     margin-top: 5vh;
+    margin-left: 300px;
     padding: 10px;
     padding-top: 0vh;
     display: flex;
