@@ -1,30 +1,40 @@
 body {
-    background-image: linear-gradient(rgb(25, 87, 90), rgb(25, 90, 87), rgb(157, 172, 167));
-    background-color: rgb(157, 172, 167);
-    background-size: cover;
-    min-height: 100vh;
+	background: linear-gradient(-45deg, #0D38B8, #069BC2, #04AA6D, #7CB806);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .titulo {
     font-family: monospace;
-    -webkit-text-stroke: 0.5px rgb(255, 255, 255);
     text-align: center;
-    color: aquamarine;
+    color: white;
     margin-right: 24vh;
 }
 
 header {
+    display: flex;
     margin: -9px;
     margin-bottom: auto;
     padding: 10px;
-    display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: black;
-}
-
-header h1 {
-    padding-right: 8vh;
+    background-color: rgba(0, 0, 0, 0.64);
+    text-align: center;
 }
 
 .guia {
@@ -59,70 +69,46 @@ header h1 {
     0% {
         -webkit-transform: rotateZ(-2deg);
     }
+
     50% {
         -webkit-transform: rotateZ(0deg) scale(.9);
     }
+
     70% {
         -webkit-transform: rotateZ(1deg);
     }
+
     100% {
         -webkit-transform: rotateZ(2deg);
     }
 }
 
-.tabla-container {
-    width: 500vh;
+.tabla {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 1100px;
+    background-color: white;
     margin: auto;
-    margin-top: 5vh;
-    max-height: 50vh;
-    overflow-y: auto;
-    overflow-x: auto;
-    position:relative;
+    margin-top: 2.5vh;
 }
 
-.tabla {
-    background-color: rgb(25, 90, 87);
-    font-family: sans-serif;
-    width: fit-content;
+.tabla td, th {
+    border: 0px solid #ddd;
+    padding: 8px;
     text-align: center;
-    border: solid 4px aqua;
-    border-collapse: collapse;
+    width: fit-content;
+}
+
+.tabla tr:hover {
+    background-color: #ddd;
 }
 
 .tabla th {
-    position: sticky;
-    top: 0;
-    background: rgb(25, 90, 87);
-    font-family: sans-serif;
-    color: rgba(255, 172, 142, 0.8);
-    font-size: 30px;
-    font-weight: 700;
-    border-bottom: 2px solid aqua;
-    padding: 20px 30px;
-    padding-left: 25px;
+    padding-top: 12px;
+    padding-bottom: 12px;
     text-align: center;
-    border-collapse: collapse;
-    white-space: nowrap; /* Evita el desbordamiento del contenido */    
-  }
-
-.tabla th:nth-child(4),
-.tabla td:nth-child(4) {
-    width: 500px; /* Ancho de la segunda columna */
-}
-
-.tabla td {
-    font-family: monospace;
-    padding: 2px;
-    border-bottom: 2px solid aqua;
-    border-left: 1px solid aqua;
-    text-align: center;
-    font-size: 25px;
-    border-collapse: collapse;
-    /*width: 20%;*/
-    max-width: 250px; /* Establece el ancho máximo deseado para las celdas */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    background-color: #04AA6D;
+    color: white;
 }
 
 .delete-row {
@@ -245,8 +231,9 @@ header h1 {
     width: 360px;
     padding: 8% 0 0;
     margin: auto;
-  }
-  .form {
+}
+
+.form {
     position: relative;
     z-index: 1;
     background: #FFFFFF;
@@ -255,8 +242,9 @@ header h1 {
     padding: 45px;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  }
-  .form input {
+}
+
+.form input {
     font-family: Arial;
     outline: 0;
     background: #f2f2f2;
@@ -266,8 +254,9 @@ header h1 {
     padding: 15px;
     box-sizing: border-box;
     font-size: 14px;
-  }
-  .form button {
+}
+
+.form button {
     font-family: Arial;
     text-transform: uppercase;
     outline: 0;
@@ -280,52 +269,66 @@ header h1 {
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer;
-  }
-  .form button:hover,.form button:active,.form button:focus {
+}
+
+.form button:hover,
+.form button:active,
+.form button:focus {
     background: rgb(19, 62, 65);
-  }
-  .form .message {
+}
+
+.form .message {
     margin: 15px 0 0;
     color: #b3b3b3;
     font-size: 12px;
-  }
-  .form .message a {
+}
+
+.form .message a {
     color: rgb(49, 110, 114);
     text-decoration: none;
-  }
-  .form .register-form {
+}
+
+.form .register-form {
     display: none;
-  }
-  .container {
+}
+
+.container {
     position: relative;
     z-index: 1;
     max-width: 300px;
     margin: 0 auto;
-  }
-  .container:before, .container:after {
+}
+
+.container:before,
+.container:after {
     content: "";
     display: block;
     clear: both;
-  }
-  .container .info {
+}
+
+.container .info {
     margin: 50px auto;
     text-align: center;
-  }
-  .container .info h1 {
+}
+
+.container .info h1 {
     margin: 0 0 15px;
     padding: 0;
     font-size: 36px;
     font-weight: 300;
     color: #1a1a1a;
-  }
-  .container .info span {
+}
+
+.container .info span {
     color: #4d4d4d;
     font-size: 12px;
-  }
-  .container .info span a {
+}
+
+.container .info span a {
     color: #000000;
     text-decoration: none;
-  }
-  .container .info span .fa {
+}
+
+.container .info span .fa {
     color: #EF3B3A;
-  }
+}
