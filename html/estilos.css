@@ -38,10 +38,25 @@ header {
 }
 
 .titulo, div {
-    margin: 0 100px;
+    margin: 0 40px;
     /* Ajusta los márgenes según tus necesidades */
 }
 
+.material-symbols-sharp {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 700,
+  'GRAD' 0,
+  'opsz' 48;
+  color: white;
+  padding: 10px;
+}
+
+.menu {
+    display: flex;
+    margin-left: 20px;
+    margin-right: 13px;    
+}
 
 :root {
     --button-background: dodgerblue;
@@ -57,7 +72,7 @@ header {
 a.button {
     /* Frame */
     display: inline-block;
-    padding: 10px 62px;
+    padding: 10px 2px;
     border-radius: 50px;
     box-sizing: border-box;
 
@@ -75,10 +90,11 @@ a.button:active {
 /* Dropdown styles */
 .dropdown {
     position: relative;
-    padding-right: 5px;
-    margin-right: 2em;
-
     border: none;
+}
+
+.dropdown span {
+    cursor: pointer;
 }
 
 .dropdown summary {
