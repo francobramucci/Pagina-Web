@@ -52,7 +52,7 @@
                 <li><a href="../php/logout.php">Cerrar Sesion</a></li>
             </ul>
         </details>
-        <h1 class="titulo" style="margin-right: 81px;">Formulario</h1>
+        <h1 class="titulo" style="margin-right: 90px;">Formulario</h1>
         <a href="http://www.ips.edu.ar" target="_blank"><img src="assets/polinegativo.jpg" alt="Politécnico"
                 class="logopoli"></a>
     </header>

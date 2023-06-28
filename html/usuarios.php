@@ -25,16 +25,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Usuarios</title>
 </head>
 <body>
     <header> 
-        <div class="guia">
-            <a href="formulario.php">Formulario</a>
-            <a href="../index.html">Integrantes</a>
-            <a href="../php/logout.php">Cerrar Sesion</a>
-        </div>
-        <h1 class="titulo">Usuarios</h1>
+        <details class="dropdown">
+            <summary role="button">
+                <div class="menu">
+                    <span class="material-symbols-sharp">menu</span>
+                    <a class="button">Menu</a>
+                </div>
+            </summary>
+            <ul>
+                <li><a href="formulario.php">Formulario</a></li>
+                <li><a href="../index.html">Integrantes</a></li>
+                <?php if($_SESSION['admins']): ?>
+                <li><a href="usuarios.php">Usuarios</a></li>
+                <?php endif; ?>
+                <li><a href="../php/logout.php">Cerrar Sesion</a></li>
+            </ul>
+        </details>
+        <h1 class="titulo" style="margin-right: 90px;">Usuarios</h1>
         <a href="http://www.ips.edu.ar" target="_blank"><img src="assets/polinegativo.jpg" alt="Politécnico" class="logopoli"></a>
     </header>
 
