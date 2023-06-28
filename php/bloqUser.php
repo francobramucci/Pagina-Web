@@ -1,4 +1,5 @@
 <?php
+
 include 'connect.php';
 
 $id = $_POST['id'];
@@ -16,7 +17,7 @@ if (isset($id)) {
     $bloq = $row['bloq'];
     
     if ($bloq) {
-        $query = "UPDATE accounts SET bloq = 0, bloq_text = '' WHERE id = '$id'";
+        $query = "UPDATE accounts SET bloq = 0, bloq_text = 'No está bloqueado' WHERE id = '$id'";
     } else {
         if (!empty($bloq_text)) {
             $query = "UPDATE accounts SET bloq = 1, bloq_text = '$bloq_text' WHERE id = '$id'";

@@ -15,12 +15,21 @@ $(document).ready(function () {
                         <td>${user.sign_date}</td>
                         <td>${user.last_log}</td>
                         <td>${user.cant_log}</td>
-                        <td>${user.bloq}</td>
                         <td>${user.bloq_text}</td>
-                        <td><button class="edit-row" userId="${user.id}">Admin</button></td>
+                        <td>
+                            ${
+                                user.admins == 1 ? 
+                                `<button class="admin-row" userId="${user.id}">Eliminar admin</button>` :
+                                `<button class="admin-row" userId="${user.id}">Agregar admin</button>`
+                            }
+                        </td>
                         <td>
                             <form class="bloquear-form">
-                                <button class="delete-row" type="submit">Bloquear</button>
+                                ${
+                                    user.bloq == 1 ? 
+                                    `<button class="bloquear-row" type="submit">Desbloquear</button>` :
+                                    `<button class="bloquear-row" type="submit">Bloquear</button>`
+                                }
                                 <input type="hidden" class="userId" value="${user.id}">
                                 <input type="text" class="motivo" placeholder="Motivo">
                             </form>
@@ -36,7 +45,7 @@ $(document).ready(function () {
         })
     }
 
-    $(document).on('click', '.admin-row', function() {
+    $('#all-accounts').on('click', '.admin-row', function() {
         let id = $(this).attr('userId');
         
         $.ajax({
@@ -45,7 +54,6 @@ $(document).ready(function () {
             data: {id: id},
             success: function(response){
                 fetchUsers();
-                console.log(response);
             },
             error: function(jqXHR, exception){
                 console.log(jqXHR);
@@ -53,7 +61,7 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on('submit', '.bloquear-form', function(e){
+    $('#all-accounts').on('submit', '.bloquear-form', function(e){
         e.preventDefault();
         let id = $(this).find('.userId').val();
         let motivo = $(this).find('.motivo').val();

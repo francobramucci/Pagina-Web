@@ -7,7 +7,12 @@ $(document).ready(function () {
             type: 'POST',
             data: {email: $('#logEmail').val(), password: $('#password').val()},
             success: function(response){
-                window.location.href = "http://200.3.127.46:8002/~uno/html/formulario.php";
+                if(response.success){
+                    window.location.href = "http://200.3.127.46:8002/~uno/html/formulario.php";
+                } else {
+                    console.log(response.message);
+                    $('#login').trigger('reset');
+                }
             },
             error: function(jqXHR, exception){
                 console.log(jqXHR);

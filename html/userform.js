@@ -1,43 +1,18 @@
 $(document).ready(function () { //Esto significa que se empezará a ejecutar una vez cargada la pagina
 
     let edit = false;
-    fetchUsers();
+    fetchUsers('');
 
-    $('#search').keyup(function (e){
-        
-        let search = $('#search').val();
-
-        if(search){
-            $.ajax({
-                url: '../php/searchUser.php',
-                type: 'POST',
-                data: {search: search},
-                success: function(response){
-                    let users = JSON.parse(response);
-                    
-                    let template = '';
-
-                    users.forEach(user=>{
-                        template += `<li>${user.nombre}</li>`;
-                    });
-
-                    $('#user-result').html(template);
-                },
-                error: function (jqXHR, exception) {
-                    console.log(jqXHR);
-                } 
-
-            });
-        }
-        else{
-            $('#task-result ul').html('');
-        }
+    $('#search').keyup(function (e) {
+        let search = $(this).val();
+        fetchUsers(search);
     });
 
-    function fetchUsers(){
+    function fetchUsers(search){
         $.ajax({
             url: '../php/mostrarTabla.php',
-            type: 'GET',
+            type: 'POST',
+            data: {search: search},
             success: function(response){
                 let users = JSON.parse(response);
                 let tabla = '';
@@ -51,7 +26,6 @@ $(document).ready(function () { //Esto significa que se empezará a ejecutar una
                         <td><button class="edit-row" userId="${user.id}">Editar</button>
                         <button class="delete-row" userId="${user.id}">Borrar</button></td>
                     </tr>`;
-                    //console.log(tabla);
                 })
             
                 $('#all-users').html(tabla);
@@ -81,7 +55,7 @@ $(document).ready(function () { //Esto significa que se empezará a ejecutar una
             data: postData,
             success: function(response){
                 edit = false;
-                fetchUsers();
+                fetchUsers('');
                 //Al agregar un usuario y tocar el boton de "Guardar Datos"
                 //reseteo el formulario.
                 $('#user-form').trigger('reset');
@@ -123,7 +97,7 @@ $(document).ready(function () { //Esto significa que se empezará a ejecutar una
             type: 'POST',
             data: {id: id},
             success: function(response){
-                fetchUsers();
+                fetchUsers('');
                 console.log(response);
             },
             error: function(jqXHR, exception){

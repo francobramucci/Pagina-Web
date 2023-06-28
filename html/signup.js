@@ -7,10 +7,11 @@ $(document).ready(function () {
             type: 'POST',
             data: {email: $('#signEmail').val(), password: $('#password').val()},
             success: function(response){
-                if(response){
+                if(response.success){
                     window.location.href = "http://200.3.127.46:8002/~uno/html/log.php";
                 } else {
-                    console.log("Correo ya registrado");
+                    console.log(response.message);
+                    $('#signup').trigger('reset');
                 }
             },
             error: function(jqXHR, exception){

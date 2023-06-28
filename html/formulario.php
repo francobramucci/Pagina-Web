@@ -1,19 +1,19 @@
 <?php
-    session_start();
+session_start();
 
-    if(!isset($_SESSION['user_id'])){
-        header("Location: http://200.3.127.46:8002/~uno/html/sign.php");
-    }
+if(!isset($_SESSION['user_id'])){
+    header("Location: http://200.3.127.46:8002/~uno/html/log.php");
+    exit();
+}
 
-    if (!isset($_SESSION['tiempo'])) {
-        $_SESSION['tiempo']=time();
-    }
-    else if (time() - $_SESSION['tiempo'] > 300) {
-        session_destroy();
-        header("Location: http://200.3.127.46:8002/~uno/html/log.php");
-        die();  
-    }
-    $_SESSION['tiempo']=time();
+if (!isset($_SESSION['tiempo'])) {
+    $_SESSION['tiempo'] = time();
+} else if (time() - $_SESSION['tiempo'] > 300) {
+    session_destroy();
+    header("Location: http://200.3.127.46:8002/~uno/html/log.php");
+    exit();
+}
+$_SESSION['tiempo'] = time();
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +44,6 @@
                 </div>
             </summary>
             <ul>
-                <li><a href="formulario.php">Formulario</a></li>
                 <li><a href="../index.html">Integrantes</a></li>
                 <?php if($_SESSION['admins']): ?>
                 <li><a href="usuarios.php">Usuarios</a></li>
@@ -93,6 +92,16 @@
             </table>
         </div>
     </div>
+    <?php else: ?>
+        <div class="login-page">
+            <div class="form">
+                <h1>Has sido bloqueado</h1>       
+                <h3>Motivo: <?= $_SESSION['bloq_text']; ?></h3>
+                <p>Comunicate con un administrador para poder acceder al sitio</p>
+            </div>
+        </div>
+    <?php endif; ?>
 </body>
 
 </html>
+

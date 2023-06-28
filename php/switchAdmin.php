@@ -1,17 +1,18 @@
 <?php
+
 include 'connect.php';
 
 $id = $_POST['id'];
 
 if (isset($id)) {
-    $query2 = "SELECT admins FROM accounts WHERE id = '$id'";
-    $result2 = $mysqli->query($query2);
+    $query = "SELECT admins FROM accounts WHERE id = '$id'";
+    $result = $mysqli->query($query);
     
-    if (!$result2) {
+    if (!$result) {
         die('Query Error: ' . $mysqli->error);
     }
     
-    $row = $result2->fetch_assoc();
+    $row = $result->fetch_assoc();
     $admins = $row['admins'];
     
     if ($admins) {

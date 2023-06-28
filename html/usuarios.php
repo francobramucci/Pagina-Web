@@ -1,19 +1,19 @@
 <?php
-    session_start();
+session_start();
 
-    if(!$_SESSION['admins']){
-        header("Location: http://200.3.127.46:8002/~uno/html/formulario.php");
-    }
+if(!$_SESSION['admins'] || $_SESSION['bloq']){
+    header("Location: http://200.3.127.46:8002/~uno/html/formulario.php");
+    exit();
+}
 
-    if (!isset($_SESSION['tiempo'])) {
-        $_SESSION['tiempo']=time();
-    }
-    else if (time() - $_SESSION['tiempo'] > 300) {
-        session_destroy();
-        header("Location: http://200.3.127.46:8002/~uno/html/log.php");
-        die();  
-    }
-    $_SESSION['tiempo']=time();
+if (!isset($_SESSION['tiempo'])) {
+    $_SESSION['tiempo'] = time();
+} else if (time() - $_SESSION['tiempo'] > 300) {
+    session_destroy();
+    header("Location: http://200.3.127.46:8002/~uno/html/log.php");
+    exit();
+}
+$_SESSION['tiempo'] = time();
 ?>
 
 <!DOCTYPE html>
@@ -30,10 +30,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>Usuarios</title>
+    <title>Formulario</title>
+</head>
 </head>
 <body>
-    <header> 
+    <header>
         <details class="dropdown">
             <summary role="button">
                 <div class="menu">
@@ -44,14 +45,12 @@
             <ul>
                 <li><a href="formulario.php">Formulario</a></li>
                 <li><a href="../index.html">Integrantes</a></li>
-                <?php if($_SESSION['admins']): ?>
-                <li><a href="usuarios.php">Usuarios</a></li>
-                <?php endif; ?>
                 <li><a href="../php/logout.php">Cerrar Sesion</a></li>
             </ul>
         </details>
         <h1 class="titulo" style="margin-right: 90px;">Usuarios</h1>
-        <a href="http://www.ips.edu.ar" target="_blank"><img src="assets/polinegativo.jpg" alt="Politécnico" class="logopoli"></a>
+        <a href="http://www.ips.edu.ar" target="_blank"><img src="assets/polinegativo.jpg" alt="Politécnico"
+                class="logopoli"></a>
     </header>
 
     <div class="todo">
@@ -63,7 +62,6 @@
                         <th>Fecha Registro</th>
                         <th>Ultima Sesion</th>                        
                         <th>Cant Sesiones</th>
-                        <th>Bloqueado</th>
                         <th>Razón Bloqueo</th>
                         <th>Admin</th>
                         <th>Bloquear/motivo</th>
