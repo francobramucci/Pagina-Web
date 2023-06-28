@@ -10,8 +10,8 @@ $(document).ready(function () {
                 if(response.success){
                     window.location.href = "http://200.3.127.46:8002/~uno/html/formulario.php";
                 } else {
-                    console.log(response.message);
                     $('#login').trigger('reset');
+                    $('#response').text(response.message);
                 }
             },
             error: function(jqXHR, exception){

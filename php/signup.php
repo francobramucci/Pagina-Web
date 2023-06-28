@@ -6,16 +6,25 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $date = date("d-m-Y H:i:s");
 
-if (!empty($email) && !empty($password)) {
+$response = array();
+
+if (empty($email) || empty($password)) {
+    $response['success'] = false;
+    $response['message'] = 'Ingrese un email y una contraseña válidos.';
+} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $response['success'] = false;
+    $response['message'] = 'Ingrese un email válido.';
+} else {
     $email = $mysqli->real_escape_string($email);
     $date = $mysqli->real_escape_string($date);
-            
+    
     // Verificar si el usuario ya existe en la base de datos
     $query = "SELECT id FROM accounts WHERE email = '$email'";
     $result = $mysqli->query($query);
 
     if ($result->num_rows > 0) {
-        $registro = false;
+        $response['success'] = false;
+        $response['message'] = 'El email ya está registrado. Intente con otro.';
     } else {
         $password_hash = password_hash($password, PASSWORD_BCRYPT);
         $password_hash = $mysqli->real_escape_string($password_hash);
@@ -28,20 +37,9 @@ if (!empty($email) && !empty($password)) {
             die('Query Error' . $mysqli->connect_error);
         }
 
-        $registro = true;
+        $response['success'] = true;
+        $response['message'] = 'Registro exitoso.';
     }
-}
-
-if($registro){
-    $response = array(
-        'success' => true,
-        'message' => ''
-    );
-} else {
-    $response = array(
-        'success' => false,
-        'message' => 'El correo electrónico ya está registrado. Intente con otro.'
-    );
 }
 
 $jsonstring = json_encode($response);

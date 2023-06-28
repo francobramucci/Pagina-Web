@@ -21,10 +21,11 @@ if(isset($_SESSION['user_id'])){
         <div class="login-page">
             <div class="form">
                 <form id="login" class="login-form">
-                    <input type="email" id="logEmail" placeholder="Email">
-                    <input type="password" id="password" placeholder="Password">
+                    <input type="text" id="logEmail" placeholder="Email"/>
+                    <input type="password" id="password" placeholder="Password"/>
                     <button type="submit">Iniciar sesion</button>
                     <p class="message">No tiene una cuenta? <a href="sign.php">Registrese</a></p>
+                    <p id="response"></p>
                 </form>
             </div>
         </div>

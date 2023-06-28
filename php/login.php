@@ -9,7 +9,15 @@ $date = date("d-m-Y H:i:s");
 $email = $mysqli->real_escape_string($email);
 $date = $mysqli->real_escape_string($date);
 
-if (!empty($email) && !empty($password)) {
+$response = array();
+
+if (empty($email) || empty($password)) {
+    $response['success'] = false;
+    $response['message'] = 'Ingrese un email y una contraseña válidos.';
+} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $response['success'] = false;
+    $response['message'] = 'Ingrese un email válido.';
+} else {
     $query = "SELECT id, pass, cant_log, admins, bloq, bloq_text FROM accounts WHERE email = '$email'";
     $results = $mysqli->query($query);
 
@@ -35,23 +43,16 @@ if (!empty($email) && !empty($password)) {
             $_SESSION['bloq'] = $row['bloq'];
             $_SESSION['bloq_text'] = $row['bloq_text'];
 
-            $inicio = true;
+            $response['success'] = true;
+            $response['message'] = 'Inicio de sesión exitoso.';
+        } else {
+            $response['success'] = false;
+            $response['message'] = 'La contraseña es incorrecta.';
         }
     } else {
-        $inicio = false;   
+        $response['success'] = false;
+        $response['message'] = 'El email no se encuentra registrado.';   
     }
-}
-
-if ($inicio) {
-    $response = array(
-        'success' => true,
-        'message' => ''
-    );
-} else {
-    $response = array(
-        'success' => false,
-        'message' => 'El correo electronico o contraseña es invalido.'
-    );
 }
 
 $jsonstring = json_encode($response);

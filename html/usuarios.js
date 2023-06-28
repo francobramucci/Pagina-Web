@@ -19,12 +19,12 @@ $(document).ready(function () {
                         <td>
                             ${
                                 user.admins == 1 ? 
-                                `<button class="admin-row" userId="${user.id}">Eliminar admin</button>` :
-                                `<button class="admin-row" userId="${user.id}">Agregar admin</button>`
+                                `<button id="admin" class="admin-row" userId="${user.id}">Eliminar admin</button>` :
+                                `<button id="admin" class="admin-row" userId="${user.id}">Agregar admin</button>`
                             }
                         </td>
                         <td>
-                            <form class="bloquear-form">
+                            <form id="bloquear" class="bloquear-form">
                                 ${
                                     user.bloq == 1 ? 
                                     `<button class="bloquear-row" type="submit">Desbloquear</button>` :
@@ -45,7 +45,7 @@ $(document).ready(function () {
         })
     }
 
-    $('#all-accounts').on('click', '.admin-row', function() {
+    $('#all-accounts').on('click', '#admin', function() {
         let id = $(this).attr('userId');
         
         $.ajax({
@@ -61,7 +61,7 @@ $(document).ready(function () {
         });
     });
 
-    $('#all-accounts').on('submit', '.bloquear-form', function(e){
+    $('#all-accounts').on('submit', '#bloquear', function(e){
         e.preventDefault();
         let id = $(this).find('.userId').val();
         let motivo = $(this).find('.motivo').val();
