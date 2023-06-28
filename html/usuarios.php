@@ -45,7 +45,7 @@ $_SESSION['tiempo'] = time();
             <ul>
                 <li><a href="formulario.php">Formulario</a></li>
                 <li><a href="../index.html">Integrantes</a></li>
-                <li><a href="../php/logout.php">Cerrar Sesion</a></li>
+                <li><a id="warning" href="../php/logout.php">Cerrar Sesion</a></li>
             </ul>
         </details>
         <h1 class="titulo" style="margin-right: 90px;">Usuarios</h1>
