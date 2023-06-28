@@ -18,6 +18,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="userform.js"></script>
@@ -25,22 +26,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Formulario</title>
 </head>
+
 <body>
-    <header> 
-        <div class="guia">
-            <a href="formulario.php">Formulario</a>
-            <a href="../index.html">Integrantes</a>
-            <a href="../php/logout.php">Cerrar Sesion</a>
-            <?php if($_SESSION['admins']): ?>
-                <a href="usuarios.php">Usuarios</a>
-            <?php endif; ?>
-        </div>
-        <h1 class="titulo">Formulario</h1>
-        <a href="http://www.ips.edu.ar" target="_blank"><img src="assets/polinegativo.jpg" alt="Politécnico" class="logopoli"></a>
+    <header>
+        <details class="dropdown">
+            <summary role="button">
+                <div class="menu">
+                    <span class="material-symbols-sharp">menu</span>
+                    <a class="button">Menu</a>
+                </div>
+            </summary>
+            <ul>
+                <li><a href="formulario.php">Formulario</a></li>
+                <li><a href="../index.html">Integrantes</a></li>
+                <?php if($_SESSION['admins']): ?>
+                <li><a href="usuarios.php">Usuarios</a></li>
+                <?php endif; ?>
+                <li><a href="../php/logout.php">Cerrar Sesion</a></li>
+            </ul>
+        </details>
+        <h1 class="titulo" style="margin-right: 81px;">Formulario</h1>
+        <a href="http://www.ips.edu.ar" target="_blank"><img src="assets/polinegativo.jpg" alt="Politécnico"
+                class="logopoli"></a>
     </header>
     <?php if(!$_SESSION['bloq']): ?>
+
     <div class="todo">
         <!-- FORMULARIO -->
         <form id="user-form">
@@ -54,14 +71,20 @@
             </div>
         </form>
 
-        <!-- TABLA -->
-        <div class="tabla-container">
-            <table class="tabla">
+        <div class="todo-tabla">
+            <!-- BUSCAR -->
+            <div class="buscar">
+                <input id="search" type="search" placeholder="Buscar tu nombre">
+                <div id="user-result" class="lista"></div>
+            </div>
+
+            <!-- TABLA -->
+            <table class="tabla" style="width: 62rem;">
                 <thead>
                     <tr>
                         <th>Nombre</th>
                         <th>Apellido</th>
-                        <th>DNI</th>                        
+                        <th>DNI</th>
                         <th>E-mail</th>
                         <th>Acción</th>
                     </tr>
@@ -69,21 +92,7 @@
                 <tbody id="all-users"></tbody>
             </table>
         </div>
-
-        <!-- BUSCAR -->
-        <div class="buscar">
-            <input id="search" type="search" placeholder="Buscar tu nombre">
-            <div id="user-result" class="lista"></div>
-        </div>
     </div>
-    <?php else: ?>
-        <div class="login-page">
-            <div class="form">
-                <h1>Has sido bloqueado</h1>       
-                <h3>Motivo: <?= $_SESSION['bloq_text']; ?></h3>
-                <p>Comunicate con un administrador para poder acceder al sitio</p>
-            </div>
-        </div>
-    <?php endif; ?>
 </body>
+
 </html>
