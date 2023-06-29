@@ -19,16 +19,16 @@ $(document).ready(function () {
                         <td>
                             ${
                                 user.admins == 1 ? 
-                                `<button id="admin" class="admin-row" userId="${user.id}">Eliminar admin</button>` :
-                                `<button id="admin" class="admin-row" userId="${user.id}">Agregar admin</button>`
+                                `<button id="admin" class="users-critical" userId="${user.id}">Eliminar admin</button>` :
+                                `<button id="admin" class="users-actions" userId="${user.id}">Agregar admin</button>`
                             }
                         </td>
                         <td>
                             <form id="bloquear" class="bloquear-form">
                                 ${
                                     user.bloq == 1 ? 
-                                    `<button class="bloquear-row" type="submit">Desbloquear</button>` :
-                                    `<button class="bloquear-row" type="submit">Bloquear</button>`
+                                    `<button class="users-actions" type="submit">Desbloquear</button>` :
+                                    `<button class="users-critical" type="submit">Bloquear</button>`
                                 }
                                 <input type="hidden" class="userId" value="${user.id}">
                                 <input type="text" class="motivo" placeholder="Motivo">
