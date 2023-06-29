@@ -36,6 +36,11 @@ header {
     align-items: center;
 }
 
+.titulo, div {
+    margin: 0 40px;
+    /* Ajusta los márgenes según tus necesidades */
+}
+
 .material-symbols-sharp {
   font-variation-settings:
   'FILL' 0,
