@@ -11,7 +11,7 @@ $(document).ready(function () {
                     window.location.href = "http://200.3.127.46:8002/~uno/html/log.php";
                 } else {
                     $('#signup').trigger('reset');
-                    $('#response').text(response.message);
+                    $('#response-div').html(`<p id="response">${response.message}</p>`);
                 }
             },
             error: function(jqXHR, exception){
