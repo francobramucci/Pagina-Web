@@ -55,7 +55,7 @@ $_SESSION['tiempo'] = time();
 
     <div class="todo">
         <div class="tabla-container">
-            <table class="tabla" style="width: 67rem">
+            <table class="tabla" style="width: 78rem">
                 <thead>
                     <tr>
                         <th>Email</th>
