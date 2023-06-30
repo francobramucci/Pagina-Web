@@ -26,6 +26,7 @@ $_SESSION['tiempo'] = time();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="estilos.css">
+    <link rel="stylesheet" type="text/css" href="log.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -95,7 +96,7 @@ $_SESSION['tiempo'] = time();
     <?php else: ?>
     <div class="login-page" style="margin-top: -70px;">
         <div class="form">
-            <img src="assets/block.png" alt="img bloqueo" style="width: 140px;">
+            <img src="assets/lock.png" alt="img bloqueo" style="width: 140px;">
             <h1>Has sido bloqueado</h1>
             <h3>Motivo:
                 <?= $_SESSION['bloq_text']; ?>
