@@ -25,7 +25,7 @@ if(isset($_SESSION['user_id'])){
                     <input type="text" id="logEmail" placeholder="Email" />
                     <input type="password" id="password" placeholder="Password" />
                     <button type="submit">Iniciar sesion</button>
-                    <div id="response-div" style="margin: 0"></div>
+                    <div id="response-div" style="margin: 14px"></div>
                     <p class="message">No tiene una cuenta? <a href="sign.php">Registrese</a></p>
                 </form>
             </div>

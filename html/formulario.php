@@ -93,13 +93,16 @@ $_SESSION['tiempo'] = time();
         </div>
     </div>
     <?php else: ?>
-        <div class="login-page">
-            <div class="form">
-                <h1>Has sido bloqueado</h1>       
-                <h3>Motivo: <?= $_SESSION['bloq_text']; ?></h3>
-                <p>Comunicate con un administrador para poder acceder al sitio</p>
-            </div>
+    <div class="login-page" style="margin-top: -70px;">
+        <div class="form">
+            <img src="assets/block.png" alt="img bloqueo" style="width: 140px;">
+            <h1>Has sido bloqueado</h1>
+            <h3>Motivo:
+                <?= $_SESSION['bloq_text']; ?>
+            </h3>
+            <p style="font-size: small;">Comunicate con un administrador para poder acceder al sitio</p>
         </div>
+    </div>
     <?php endif; ?>
 </body>
 
