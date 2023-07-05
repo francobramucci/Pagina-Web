@@ -16,23 +16,19 @@ $(document).ready(function () {
                         <td>${user.last_log}</td>
                         <td>${user.cant_log}</td>
                         <td>${user.bloq_text}</td>
-                        <td>
-                            ${
-                                user.admins == 1 ? 
-                                `<button id="admin" class="users-critical" userId="${user.id}">Eliminar admin</button>` :
-                                `<button id="admin" class="users-actions" userId="${user.id}">Agregar admin</button>`
-                            }
+                        <td>${user.is_current_user? `Tienes que ser admin`:
+                            `<button id="admin" class="${user.admins == 1 ? 'users-critical' : 'users-actions'}" userId="${user.id}">
+                                ${user.admins == 1 ? 'Eliminar admin' : 'Agregar admin'}
+                            </button>`}
                         </td>
-                        <td>
-                            <form id="bloquear" class="bloquear-form">
-                                ${
-                                    user.bloq == 1 ? 
-                                    `<button class="users-actions" type="submit">Desbloquear</button>` :
-                                    `<button class="users-critical" type="submit">Bloquear</button>`
-                                }
+                        <td>${user.is_current_user? `Tienes que ser admin`:
+                            `<form id="bloquear" class="bloquear-form">
+                                <button class="${user.bloq == 1 ? 'users-actions' : 'users-critical'}" type="submit">
+                                    ${user.bloq == 1 ? 'Desbloquear' : 'Bloquear'}
+                                </button>
                                 <input type="hidden" class="userId" value="${user.id}">
                                 <input type="text" class="motivo" placeholder="Motivo">
-                            </form>
+                            </form>`}
                         </td>
                     </tr>`;
                 })

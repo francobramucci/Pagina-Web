@@ -16,7 +16,8 @@ while($row = $result->fetch_array(MYSQLI_ASSOC)){
         'cant_log' => $row['cant_log'],
         'admins' => $row['admins'],
         'bloq' => $row['bloq'],
-        'bloq_text' => $row['bloq_text']
+        'bloq_text' => $row['bloq_text'],
+        'is_current_user' => ($row['id'] == $_SESSION['user_id'])
     );
 }
 

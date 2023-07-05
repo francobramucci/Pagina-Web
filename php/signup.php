@@ -10,10 +10,10 @@ $response = array();
 
 if (empty($email) || empty($password)) {
     $response['success'] = false;
-    $response['message'] = 'Ingrese un email y una contraseña válidos.';
+    $response['message'] = 'Ingrese un email y una contraseña válidos';
 } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $response['success'] = false;
-    $response['message'] = 'Ingrese un email válido.';
+    $response['message'] = 'Ingrese un email válido';
 } else {
     $email = $mysqli->real_escape_string($email);
     $date = $mysqli->real_escape_string($date);
@@ -24,7 +24,7 @@ if (empty($email) || empty($password)) {
 
     if ($result->num_rows > 0) {
         $response['success'] = false;
-        $response['message'] = 'El email ya está registrado. Intente con otro.';
+        $response['message'] = 'El email ya está registrado. Intente con otro';
     } else {
         $password_hash = password_hash($password, PASSWORD_BCRYPT);
         $password_hash = $mysqli->real_escape_string($password_hash);
@@ -38,7 +38,7 @@ if (empty($email) || empty($password)) {
         }
 
         $response['success'] = true;
-        $response['message'] = 'Registro exitoso.';
+        $response['message'] = 'Registro exitoso';
     }
 }
 
