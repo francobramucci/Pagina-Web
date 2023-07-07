@@ -4,7 +4,7 @@
     $id = $_POST['id'];
 
     if(isset($id)){
-        $query = "SELECT * FROM usuarios WHERE id = $id";
+        $query = "SELECT * FROM tasks WHERE id = $id";
         $result = $mysqli->query($query);
 
         if(!$result){
@@ -15,10 +15,8 @@
         while($row = $result->fetch_array()){
             $json[] = array(
                 'id' => $row['id'],
-                'nombre' => $row['nombre'],
-                'apellido' => $row['apellido'],
-                'dni' => $row['dni'],
-                'email' => $row['email']
+                'titulo' => $row['titulo'],
+                'descripcion' => $row['descripcion']
             );
         }
 

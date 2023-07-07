@@ -3,18 +3,30 @@
 include 'connect.php';
 
 $id = $_POST['id'];
-$nombre = $_POST['nombre'];
-$apellido = $_POST['apellido'];
-$dni = $_POST['dni'];
-$email = $_POST['email'];
+$titulo = $_POST['titulo'];
+$descripcion = $_POST['descripcion'];
 
-if(isset($id) && isset($nombre) && isset($apellido) && isset($dni) && isset($email)){
-    $query = "UPDATE usuarios SET nombre = '$nombre', apellido = '$apellido', dni = '$dni', email = '$email' WHERE id = '$id'";
+if(isset($id) && isset($titulo) && isset($descripcion)){
+    $titulo = $mysqli->real_escape_string($titulo);
+    $descripcion = $mysqli->real_escape_string($descripcion);
+
+    $query = "UPDATE tasks SET titulo = '$titulo', descripcion = '$descripcion' WHERE id = '$id'";
     $result = $mysqli->query($query);
 
     if(!$result){
         die('Query Error' . $mysqli->error);
     }
-    echo "Task has been updated";
+
 }
+
+$response = array(
+    'id' => $id,
+    'titulo' => $titulo,
+    'descripcion' => $descripcion
+);
+
+$jsonstring = json_encode($response);
+header('Content-Type: application/json');
+echo $jsonstring;
+
 ?>

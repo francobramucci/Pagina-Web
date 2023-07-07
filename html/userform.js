@@ -1,34 +1,32 @@
 $(document).ready(function () { //Esto significa que se empezará a ejecutar una vez cargada la pagina
 
     let edit = false;
-    fetchUsers('');
+    fetchTask('');
 
     $('#search').keyup(function (e) {
         let search = $(this).val();
-        fetchUsers(search);
+        fetchTask(search);
     });
 
-    function fetchUsers(search){
+    function fetchTask(search){
         $.ajax({
             url: '../php/mostrarTabla.php',
             type: 'POST',
             data: {search: search},
             success: function(response){
-                let users = JSON.parse(response);
+                let tasks = JSON.parse(response);
                 let tabla = '';
-                users.forEach(user=>{
+                tasks.forEach(task=>{
                     tabla += `
                     <tr>
-                        <td>${user.nombre}</td>
-                        <td>${user.apellido}</td>
-                        <td>${user.dni}</td>
-                        <td>${user.email}</td>
-                        <td><button class="edit-row" userId="${user.id}">Editar</button>
-                        <button class="delete-row" userId="${user.id}">Borrar</button></td>
+                        <td>${task.titulo}</td>
+                        <td>${task.descripcion}</td>
+                        <td><button class="edit-row" taskId="${task.id}">Editar</button>
+                        <button class="delete-row" taskId="${task.id}">Borrar</button></td>
                     </tr>`;
                 })
             
-                $('#all-users').html(tabla);
+                $('#all-tasks').html(tabla);
             },
             error: function(jqXHR, exception){
                 console.log(jqXHR);
@@ -39,23 +37,15 @@ $(document).ready(function () { //Esto significa que se empezará a ejecutar una
     $('#user-form').submit(function(e){
         e.preventDefault();
 
-        let postData = {
-            id: $('#userId').val(),
-            nombre: $('#userName').val(),
-            apellido: $('#userLastname').val(),
-            dni: $('#dni').val(),
-            email: $('#userEmail').val()
-        };
-
         let url = edit === false ? '../php/addUser.php' : '../php/updateUser.php';
 
         $.ajax({
             url: url,
             type: 'POST',
-            data: postData,
+            data: {id: $('#taskId').val(), titulo: $('#taskTitle').val(), descripcion: $('#taskDesc').val()},
             success: function(response){
                 edit = false;
-                fetchUsers('');
+                fetchTask('');
                 //Al agregar un usuario y tocar el boton de "Guardar Datos"
                 //reseteo el formulario.
                 $('#user-form').trigger('reset');
@@ -67,20 +57,17 @@ $(document).ready(function () { //Esto significa que se empezará a ejecutar una
     });
 
     $(document).on('click', '.edit-row', function() {
-        let id = $(this).attr('userId');
+        let id = $(this).attr('taskId');
         
         $.ajax({
             url: '../php/dataUser.php',
             type: 'POST',
             data: {id: id},
             success: function(response){
-                let user = JSON.parse(response);
-                console.log(user[0].nombre);
-                $('#userId').val(user[0].id);
-                $('#userName').val(user[0].nombre);
-                $('#userLastname').val(user[0].apellido);
-                $('#dni').val(user[0].dni);
-                $('#userEmail').val(user[0].email);
+                let task = JSON.parse(response);
+                $('#taskId').val(task[0].id);
+                $('#taskTitle').val(task[0].titulo);
+                $('#taskDesc').val(task[0].descripcion);
                 edit = true;  
             },
             error: function(jqXHR, exception){
@@ -90,14 +77,14 @@ $(document).ready(function () { //Esto significa que se empezará a ejecutar una
     });
 
     $(document).on('click', '.delete-row', function() {
-        let id = $(this).attr('userId');
+        let id = $(this).attr('taskId');
         
         $.ajax({
             url: '../php/eraseUser.php',
             type: 'POST',
             data: {id: id},
             success: function(response){
-                fetchUsers('');
+                fetchTask('');
                 console.log(response);
             },
             error: function(jqXHR, exception){

@@ -62,11 +62,9 @@ $_SESSION['tiempo'] = time();
         <!-- FORMULARIO -->
         <form id="user-form">
             <div>
-                <input type="hidden" id="userId">
-                <input type="text" id="userName" placeholder="Nombre Completo">
-                <input type="text" id="userLastname" placeholder="Apellido">
-                <input type="number" id="dni" placeholder="DNI">
-                <input type="email" id="userEmail" placeholder="E-mail">
+                <input type="hidden" id="taskId" value="">
+                <input type="text" id="taskTitle" placeholder="Titulo">
+                <input type="text" id="taskDesc" placeholder="Descripcion">
                 <button type="submit">Guardar datos</button>
             </div>
         </form>
@@ -74,22 +72,19 @@ $_SESSION['tiempo'] = time();
         <div class="todo-tabla">
             <!-- BUSCAR -->
             <div class="buscar">
-                <input id="search" type="search" placeholder="Buscar tu nombre">
-                <div id="user-result" class="lista"></div>
+                <input id="search" type="search" placeholder="Buscar tu tarea">
             </div>
 
             <!-- TABLA -->
             <table class="tabla" style="width: 62rem;">
                 <thead>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>DNI</th>
-                        <th>E-mail</th>
+                        <th>Titulo</th>
+                        <th>Descripcion</th>
                         <th>Acción</th>
                     </tr>
                 </thead>
-                <tbody id="all-users"></tbody>
+                <tbody id="all-tasks"></tbody>
             </table>
         </div>
     </div>

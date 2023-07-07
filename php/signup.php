@@ -30,7 +30,7 @@ if (empty($email) || empty($password)) {
         $password_hash = $mysqli->real_escape_string($password_hash);
 
         $query = "INSERT INTO accounts (email, pass, sign_date, last_log, cant_log, admins, bloq, bloq_text)
-                  VALUES ('$email', '$password_hash', '$date', '', 0, 0, 0, '')";
+                  VALUES ('$email', '$password_hash', '$date', '', 0, 0, 0, 'No está bloqueado')";
         $result = $mysqli->query($query);
 
         if (!$result) {

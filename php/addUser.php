@@ -2,25 +2,22 @@
 
 include 'connect.php';
 
-$nombre = $_POST['nombre'];
-$apellido = $_POST['apellido'];
-$dni = $_POST['dni'];
-$email = $_POST['email'];
+$titulo = $_POST['titulo'];
+$descripcion = $_POST['descripcion'];
 
-if(isset($nombre) && isset($apellido) && isset($dni) && isset($email)){
-    $nombre = $mysqli->real_escape_string($nombre);
-    $apellido = $mysqli->real_escape_string($apellido);
-    $dni = $mysqli->real_escape_string($dni);
-    $email = $mysqli->real_escape_string($email);
+if(isset($titulo) && isset($descripcion)){
+    $titulo = $mysqli->real_escape_string($titulo);
+    $descripcion = $mysqli->real_escape_string($descripcion);
 
-    if(!empty($nombre) && !empty($apellido) && !empty($dni) && !empty($email)){
-        $query = "INSERT into usuarios(nombre,apellido,dni,email,user) VALUES('$nombre','$apellido','$dni','$email','" . $_SESSION['user_id'] . "')";
+    if(!empty($titulo) && !empty($descripcion)){
+        $query = "INSERT into tasks(user,titulo,descripcion) 
+                  VALUES('" . $_SESSION['user_id'] . "', '$titulo', '$descripcion')";
         $result = $mysqli->query($query);
 
         if(!$result){
             die('Query Error' . $mysqli->connect_error);
         }
-            echo "User Added Succesfully";
+        echo "Task Added Succesfully";
     }
 }
 ?>

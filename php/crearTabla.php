@@ -23,6 +23,13 @@
         bloq_text TEXT NOT NULL
     )") or die($mysqli->error);
 
+    $mysqli->query("CREATE TABLE
+        tasks (id INT AUTO_INCREMENT PRIMARY KEY,
+        user INT,
+        titulo TEXT NOT NULL,
+        descripcion TEXT NOT NULL
+    ")
+
     $mysqli->close();
 
 ?>
