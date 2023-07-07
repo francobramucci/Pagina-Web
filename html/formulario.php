@@ -36,7 +36,7 @@ $_SESSION['tiempo'] = time();
 </head>
 
 <body>
-    <header>
+<header>
         <details class="dropdown">
             <summary role="button">
                 <div class="menu">
@@ -64,7 +64,7 @@ $_SESSION['tiempo'] = time();
             <div>
                 <input type="hidden" id="taskId" value="">
                 <input type="text" id="taskTitle" placeholder="Titulo">
-                <input type="text" id="taskDesc" placeholder="Descripcion">
+                <textarea name="description" id="taskDesc" cols="30" rows="15" placeholder="Descripcion"></textarea>
                 <button type="submit">Guardar datos</button>
             </div>
         </form>
@@ -76,7 +76,7 @@ $_SESSION['tiempo'] = time();
             </div>
 
             <!-- TABLA -->
-            <table class="tabla" style="width: 62rem;">
+            <table class="tabla" style="width: 62rem; margin-top: 28px;">
                 <thead>
                     <tr>
                         <th>Titulo</th>

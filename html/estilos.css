@@ -37,7 +37,7 @@ header {
 }
 
 .titulo, div {
-    margin: 0 40px;
+    margin: 0 20px;
     /* Ajusta los márgenes según tus necesidades */
 }
 
@@ -214,7 +214,7 @@ a.button:active {
 
 .tabla td, th {
     border: 0px solid #ddd;
-    padding: 8px;
+    padding: 12px;
     text-align: center;
     width: fit-content;
 }
@@ -232,7 +232,7 @@ a.button:active {
 }
 
 .delete-row {
-    padding: 9%;
+    padding: 1rem;
     border: none;
     border-radius: 14px;
     font-size: 19px;
@@ -241,7 +241,8 @@ a.button:active {
 }
 
 .edit-row {
-    padding: 9%;
+    margin-bottom: 6px;
+    padding: 1rem;
     border: none;
     border-radius: 14px;
     font-size: 19px;
@@ -268,7 +269,6 @@ a.button:active {
 .todo {
     display: flex;
     justify-content: center;
-    gap: 8px;
 }
 
 .todo-tabla {
@@ -288,7 +288,6 @@ a.button:active {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    padding-right: 0vh;
     gap: 10px;
 }
 
@@ -305,19 +304,30 @@ a.button:active {
 }
 
 #user-form div {
-    margin-top: 7em;
+    margin-top: 4em;
     display: flex;
     flex-direction: column;
     gap: 25px;
 }
 
 #user-form input {
-    width: 200px;
+    width: 250px;
     padding: 10px;
     padding-left: 10px;
     border: 2px solid white;
     border-radius: 15px;
     outline: none;
+}
+
+#user-form textarea {
+    width: 250px;
+    padding: 10px;
+    padding-left: 10px;
+    border: 2px solid white;
+    border-radius: 5px;
+    outline: none;
+    resize: vertical;
+    font-family: 'Roboto', sans-serif;
 }
 
 .buscar {
